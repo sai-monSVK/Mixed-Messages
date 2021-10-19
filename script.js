@@ -5,28 +5,21 @@ const messageParts = {
 firstPart : ['Life ', 'World ', 'Universe ', 'Luck ', 'Your yourney, ', 'Path ', 'Destiny ', 'Love ', 'Imagination ' ],
 secondPart : ['is always made of ', 'truly is full of ', 'can be filled with', 'is like ', "is never bad thing, it's like ", 'is like a river always reflect '],
 thirdPart : ['beautifull things.', 'shiny rainbows.', 'crazy unicorns.', 'hearthwarming dragons.', 'pandas.', 'bank empolyee.', 'gates of hell.'],
+
 };
 
-//function for pick random string from array
+//function random number
 
-function randNum() {
-        let n = Math.floor(Math.random());
+function randNum(inp) {
+        let n = Math.floor(Math.random()*inp);
         return n;
     };
 
+let finalMessage = [];
 
-//create variables for every part
-
-let a = randNum(firstPart);
-let b = randNum(secondPart);
-let c = randNum(thirdPart);
-
-
-//func for mixed messages
-function mixedMessages() {
-    let message = firstPart[a] + secondPart[b] + thirdPart[c];    
-    return message;
+for (let element in messageParts) {
+    let randomIndex = randNum(messageParts[element].length);
+        finalMessage.push(messageParts[element][randomIndex]);
 }
 
-console.log(mixedMessages());
-
+console.log(finalMessage.join(''));
